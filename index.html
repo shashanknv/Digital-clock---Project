@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="hero">
+        <h1>
+            <span>Digital  Clock</span>
+            <!-- <span>I</span>
+            <span>G</span>
+            <span>I</span>
+            <span>T</span>
+            <span>A</span>
+            <span>L</span>
+            <span>-</span>
+            <span>C</span>
+            <span>L</span>
+            <span>O</span>
+            <span>C</span>
+            <span>K</span> -->
+        </h1>
+        <div class="container">
+            <div class ="con">
+                <div class="clock">
+                    <span id="hrs">00</span>
+                    <span>:</span>
+                    <span id="min">00</span>
+                    <span>:</span>
+                    <span id="sec">00</span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        // let hrs = document.getElementById("hrs");
+        // let min = document.getElementById("min");
+        // let sec = document.getElementById("sec");
+
+        // setInterval(()=>{
+        //     let currentTime = new Date();
+
+        //     hrs.innerHTML = (currentTime.getHours()<10?"0":"") + currentTime.getHours();
+        //     min.innerHTML = (currentTime.getMinutes()<10?"0":"") + currentTime.getMinutes();
+        //     sec.innerHTML = (currentTime.getSeconds()<10?"0":"") + currentTime.getSeconds();
+        // },1000)
+
+        // let currentTime = new Date();
+
+        // hrs.innerHTML = currentTime.getHours();
+        // min.innerHTML = currentTime.getMinutes();
+        // sec.innerHTML = currentTime.getSeconds();
+
+
+
+        let hrs = document.getElementById("hrs");
+        let min = document.getElementById("min");
+        let sec = document.getElementById("sec");
+        let ampmSpan = document.getElementById("ampm");
+
+        setInterval(()=>{
+            let currentTime = new Date();
+            let hours = currentTime.getHours();
+            // let ampm = hours >= 12 ? 'PM' : 'AM';
+
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+
+            hrs.innerHTML = (hours<10?"0":"") + hours;
+            min.innerHTML = (currentTime.getMinutes()<10?"0":"") + currentTime.getMinutes();
+            sec.innerHTML = (currentTime.getSeconds()<10?"0":"") + currentTime.getSeconds();
+        },1000)
+
+        let currentTime = new Date();
+        let hours = currentTime.getHours();
+        let ampm = hours >= 12 ? 'PM' : 'AM';
+
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+
+        hrs.innerHTML = hours;
+        min.innerHTML = currentTime.getMinutes();
+        sec.innerHTML = currentTime.getSeconds();
+
+        // ampmSpan.innerHTML = ampm;
+
+    </script>
+</body>
+</html>
